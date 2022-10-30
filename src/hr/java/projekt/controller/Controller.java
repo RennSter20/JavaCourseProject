@@ -6,6 +6,7 @@ import hr.java.projekt.entitet.Pregled;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -24,17 +25,37 @@ public class Controller {
     }
 
     public void pocniProgram(){
-        redirectController(odabirOpcije(unos));
+            redirectController(odabirOpcije(unos));
     }
 
     public static Integer odabirOpcije(Scanner unos){
 
-        System.out.println("Odaberite jednu od ponuđenih opcija: ");
+        Boolean nastaviPetlju = false;
+        Integer temp = null;
+        do{
 
-        System.out.println("1. Pregledi");
+            try{
+                System.out.println("Odaberite jednu od ponuđenih opcija: ");
 
-        Integer temp = unos.nextInt();
-        unos.nextLine();
+                System.out.println("1. Pregledi");
+
+                temp = unos.nextInt();
+                unos.nextLine();
+
+                if(temp != 1){
+                    System.out.println("Neispravan unos!");
+                    nastaviPetlju = true;
+                }else{
+                    nastaviPetlju = false;
+                }
+
+            }catch (Exception e){
+                System.out.println("Neispravan unos!");
+                nastaviPetlju = true;
+                unos.nextLine();
+            }
+
+        }while(nastaviPetlju);
 
         return temp;
     }
@@ -45,20 +66,38 @@ public class Controller {
                 preglediMenu();
                 break;
             //TO DO više menija
-            default:
-                System.out.println("Nije unesen ispravan broj!");
         }
     }
 
     private void preglediMenu(){
-        System.out.println("Odaberite jednu od ponuđenih opcija: ");
-        System.out.println("1. Unos pregleda");
-        System.out.println("2. Izmjena pregleda");
-        System.out.println("3. Brisanje pregleda");
-        System.out.println("4. Ispis svih pregleda");
-        System.out.print(">>  ");
 
-        Integer temp = unos.nextInt();
+
+        Integer temp = null;
+        Boolean nastaviPetlju = false;
+
+        do{
+            try{
+                System.out.println("Odaberite jednu od ponuđenih opcija: ");
+                System.out.println("1. Unos pregleda");
+                System.out.println("2. Izmjena pregleda");
+                System.out.println("3. Brisanje pregleda");
+                System.out.println("4. Ispis svih pregleda");
+                System.out.print(">>  ");
+
+                temp = unos.nextInt();
+                if(temp < 1 || temp > 4){
+                    System.out.println("Neispravan unos!");
+                    nastaviPetlju = true;
+                    unos.nextLine();
+                }else{
+                    nastaviPetlju = false;
+                }
+
+            }catch (InputMismatchException e){
+                System.out.println("Neispravan unos!");
+                unos.nextLine();
+            }
+        }while(nastaviPetlju);
         unos.nextLine();
 
         switch(temp){
@@ -104,30 +143,72 @@ public class Controller {
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+
         }
 
         preglediMenu();
     }
 
     private void izmjenaPregleda(){
-        System.out.println("Izmjena pregleda: ");
 
-        kratkiIspisSvihPregleda();
+        Boolean nastaviPetlju = false;
+        Integer index = null;
+        do{
+            try{
 
-        System.out.println("Unesite redni broj pregleda za koji želite unijeti izmjenu: ");
-        System.out.print(">> ");
-        Integer index = unos.nextInt();
-        unos.nextLine();
+                System.out.println("Izmjena pregleda: ");
 
-        System.out.println("Što želite izmjeniti?");
-        System.out.println("1. Ime");
-        System.out.println("2. Prezime");
-        System.out.println("3. OIB");
-        System.out.println("4. Datum pregleda");
-        System.out.print(">> ");
-        Integer izborIzmjene = unos.nextInt();
-        unos.nextLine();
+                kratkiIspisSvihPregleda();
+
+                System.out.println("Unesite redni broj pregleda za koji želite unijeti izmjenu: ");
+                System.out.print(">> ");
+
+                index = unos.nextInt();
+                unos.nextLine();
+                nastaviPetlju = false;
+
+            }catch (InputMismatchException e){
+                System.out.println("Neispravan unos!");
+                unos.nextLine();
+                nastaviPetlju = true;
+            }catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("Unesen je redni broj za ne postojećeg pacijenta!");
+                nastaviPetlju = true;
+                unos.nextLine();
+            }
+        }while(nastaviPetlju);
+
+
+
+        Integer izborIzmjene = null;
+        nastaviPetlju = false;
+        do{
+
+            try{
+                System.out.println("Što želite izmjeniti?");
+                System.out.println("1. Ime");
+                System.out.println("2. Prezime");
+                System.out.println("3. OIB");
+                System.out.println("4. Datum pregleda");
+                System.out.print(">> ");
+
+                izborIzmjene = unos.nextInt();
+                unos.nextLine();
+
+                if(izborIzmjene < 1 || izborIzmjene > 4){
+                    System.out.println("Neispravan unos!");
+                    nastaviPetlju = true;
+                }else{
+                    nastaviPetlju = false;
+                }
+
+            }catch (InputMismatchException e) {
+                System.out.println("Neispravan unos!");
+                nastaviPetlju = true;
+                unos.nextLine();
+            }
+        }while(nastaviPetlju);
+
 
         switch(izborIzmjene){
             case 1:
