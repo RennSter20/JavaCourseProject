@@ -5,8 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/iznimke/IznimkaNemaUpisanihPregleda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSemesterProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSemesterProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Bolest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Bolest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Bolnica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Bolnica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Doktor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Doktor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Laboratorij.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Laboratorij.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Nalaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Nalaz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Pacijent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pacijent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/PovijestBolesti.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/PovijestBolesti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Pregled.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pregled.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hr/java/projekt/entitet/Recepcija.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Recepcija.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,21 +63,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/renat/IdeaProjects/Rak-2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/renat/IdeaProjects/JavaSemesterProject/src",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;h2&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\renat\IdeaProjects\JavaSemesterProject\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\renat\IdeaProjects\JavaSemesterProject\src\main\resources" />
+      <recent name="C:\Users\renat\IdeaProjects\JavaSemesterProject" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -110,26 +142,5 @@
         <entry key="b67b973b-c6f3-49dd-9414-36ea001ff655" value="TOOL_WINDOW" />
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/hr/java/projekt/controller/Controller.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

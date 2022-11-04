@@ -10,18 +10,24 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Controller {
-
-
+    
     private Integer sljedeciKorak;
     private Integer indexKorisnika;
     private Scanner unos;
     private Database database;
 
-    public Controller(Scanner unos, Integer indexKorisnika, Database database) {
+    private static Logger logger;
+
+    public Controller(Scanner unos, Integer indexKorisnika, Database database, Logger logger) {
         this.unos = unos;
         this.indexKorisnika = indexKorisnika;
         this.database = database;
+        this.logger = logger;
     }
 
     public void pocniProgram(){
@@ -49,10 +55,10 @@ public class Controller {
                     nastaviPetlju = false;
                 }
 
-            }catch (Exception e){
+            }catch (InputMismatchException e){
                 System.out.println("Neispravan unos!");
                 nastaviPetlju = true;
-                unos.nextLine();
+                logger.info(e.getMessage(), e);
             }
 
         }while(nastaviPetlju);
@@ -95,7 +101,7 @@ public class Controller {
 
             }catch (InputMismatchException e){
                 System.out.println("Neispravan unos!");
-                unos.nextLine();
+                logger.info(String.valueOf(e.getStackTrace()));
             }
         }while(nastaviPetlju);
         unos.nextLine();
@@ -108,7 +114,13 @@ public class Controller {
                 izmjenaPregleda();
                 break;
             case 3:
-                brisanjePregleda();
+                try {
+                    brisanjePregleda();
+                } catch (IznimkaNemaUpisanihPregleda e) {
+                    System.out.println(e.getMessage());
+                    logger.info(e.getMessage(), e);
+                    preglediMenu();
+                }
                 break;
             case 4:
                 ispisPregleda();
@@ -143,7 +155,7 @@ public class Controller {
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
-
+            logger.info(e.getMessage(), e);
         }
 
         preglediMenu();
@@ -155,26 +167,27 @@ public class Controller {
         Integer index = null;
         do{
             try{
-
-                System.out.println("Izmjena pregleda: ");
-
                 kratkiIspisSvihPregleda();
-
+                System.out.println("Izmjena pregleda: ");
                 System.out.println("Unesite redni broj pregleda za koji želite unijeti izmjenu: ");
                 System.out.print(">> ");
-
                 index = unos.nextInt();
                 unos.nextLine();
                 nastaviPetlju = false;
 
             }catch (InputMismatchException e){
                 System.out.println("Neispravan unos!");
-                unos.nextLine();
                 nastaviPetlju = true;
+                logger.info(e.getMessage(), e);
             }catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("Unesen je redni broj za ne postojećeg pacijenta!");
                 nastaviPetlju = true;
                 unos.nextLine();
+                logger.info(e.getMessage(), e);
+            }catch (IznimkaNemaUpisanihPregleda e){
+                System.out.println(e.getMessage());
+                logger.info(e.getMessage(), e);
+                preglediMenu();
             }
         }while(nastaviPetlju);
 
@@ -206,6 +219,7 @@ public class Controller {
                 System.out.println("Neispravan unos!");
                 nastaviPetlju = true;
                 unos.nextLine();
+                logger.info(e.getMessage(), e);
             }
         }while(nastaviPetlju);
 
@@ -240,7 +254,7 @@ public class Controller {
 
     }
 
-    private void brisanjePregleda(){
+    private void brisanjePregleda() throws IznimkaNemaUpisanihPregleda {
         System.out.println("Brisanje pregleda: ");
         kratkiIspisSvihPregleda();
 
@@ -263,8 +277,15 @@ public class Controller {
     }
 
     private void ispisPregleda(){
-        kratkiIspisSvihPregleda();
-        povratakNaPocetniMeni();
+        try{
+            kratkiIspisSvihPregleda();
+            povratakNaPocetniMeni();
+        }catch (IznimkaNemaUpisanihPregleda e){
+            System.out.println(e.getMessage());
+            logger.info(e.getMessage(), e);
+            preglediMenu();
+        }
+
 
     }
 
@@ -278,14 +299,19 @@ public class Controller {
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                logger.info(e.getMessage(), e);
             }
 
             pocniProgram();
         }
     }
 
-    private void kratkiIspisSvihPregleda(){
+    private void kratkiIspisSvihPregleda() throws IznimkaNemaUpisanihPregleda{
+
+        if(database.getPregledi().size() == 0){
+            throw new IznimkaNemaUpisanihPregleda("Broj pregleda je jednak 0!");
+        }
+
         System.out.println("Ime-Prezime-OIB-Datum");
 
         for(int i = 0;i<database.getPregledi().size();i++){
@@ -308,5 +334,13 @@ public class Controller {
 
     public void setIndexKorisnika(Integer indexKorisnika) {
         this.indexKorisnika = indexKorisnika;
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+
+    public void setLogger(Logger logger) {
+        this.logger = logger;
     }
 }
