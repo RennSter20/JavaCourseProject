@@ -3,7 +3,6 @@ import hr.java.projekt.database.Database;
 import hr.java.projekt.entitet.LoginController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +10,7 @@ public class Main {
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
+
 
         Scanner unos = new Scanner(System.in);
 

@@ -4,9 +4,14 @@ import hr.java.projekt.database.Database;
 import hr.java.projekt.entitet.Pacijent;
 import hr.java.projekt.entitet.Pregled;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -148,6 +153,21 @@ public class Controller {
         LocalDate tempDatum = LocalDate.parse(unos.nextLine(), dateFormat);
 
         database.setPregledi(new Pregled(new Pacijent(tempIme, tempPrezime, tempOIB), tempDatum));
+
+
+        try {
+            Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
+
+            PreparedStatement stmnt = veza.prepareStatement("INSERT INTO PREGLEDI(IME, PREZIME) VALUES(?,?)");
+            stmnt.setString(1, tempIme);
+            stmnt.setString(2, tempPrezime);
+
+            stmnt.executeUpdate();
+            veza.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("Pregled unesen!");
         System.out.println("Vracanje na pocetni menu...\n\n");
