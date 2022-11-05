@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Simple insert to DB.">
+    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Insert and get methods for DB.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pregled.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pregled.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1667590242197</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Insert and get methods for DB.">
+      <created>1667664985847</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1667664985847</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,28 +143,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed try/catch. Added custom Exception." />
     <MESSAGE value="Simple insert to DB." />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple insert to DB." />
+    <MESSAGE value="Insert and get methods for DB." />
+    <option name="LAST_COMMIT_MESSAGE" value="Insert and get methods for DB." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.h2.result.ResultRemote" memberName="rowCount" />

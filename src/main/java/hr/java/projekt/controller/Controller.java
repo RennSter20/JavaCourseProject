@@ -114,7 +114,7 @@ public class Controller {
                 unosPregleda(new Database());
                 break;
             case 2:
-                izmjenaPregleda();
+                //izmjenaPregleda();
                 break;
             case 3:
                 try {
@@ -171,13 +171,13 @@ public class Controller {
         preglediMenu();
     }
 
-    private void izmjenaPregleda(){
+    /*private void izmjenaPregleda(){
 
         Boolean nastaviPetlju = false;
         Integer index = null;
         do{
             try{
-                kratkiIspisSvihPregleda();
+                kratkiIspisSvihPregleda(new Database());
                 System.out.println("Izmjena pregleda: ");
                 System.out.println("Unesite redni broj pregleda za koji želite unijeti izmjenu: ");
                 System.out.print(">> ");
@@ -194,10 +194,6 @@ public class Controller {
                 nastaviPetlju = true;
                 unos.nextLine();
                 logger.info(e.getMessage(), e);
-            }catch (IznimkaNemaUpisanihPregleda e){
-                System.out.println(e.getMessage());
-                logger.info(e.getMessage(), e);
-                preglediMenu();
             }
         }while(nastaviPetlju);
 
@@ -262,7 +258,7 @@ public class Controller {
         System.out.println("Izmjene prihvaćene!");
         povratakNaPocetniMeni();
 
-    }
+    }*/
 
     private void brisanjePregleda() throws IznimkaNemaUpisanihPregleda {
 //        System.out.println("Brisanje pregleda: ");
@@ -287,16 +283,8 @@ public class Controller {
     }
 
     private void ispisPregleda(){
-        try{
-            kratkiIspisSvihPregleda(new Database());
-            povratakNaPocetniMeni();
-        }catch (IznimkaNemaUpisanihPregleda e){
-            System.out.println(e.getMessage());
-            logger.info(e.getMessage(), e);
-            preglediMenu();
-        }
-
-
+        kratkiIspisSvihPregleda(new Database());
+        povratakNaPocetniMeni();
     }
 
 
@@ -316,15 +304,17 @@ public class Controller {
         }
     }
 
-    private void kratkiIspisSvihPregleda(Database database) throws IznimkaNemaUpisanihPregleda{
+    private void kratkiIspisSvihPregleda(Database database){
 
-//        if(database.getPregledi().size() == 0){
-//            throw new IznimkaNemaUpisanihPregleda("Broj pregleda je jednak 0!");
-//        }
         List<Pregled> preglediZaIspis = new ArrayList<>();
         try{
             preglediZaIspis = database.getAllPregledi();
-        }catch (Exception e){
+
+        }catch(IznimkaNemaUpisanihPregleda e){
+            logger.info(e.getMessage(), e);
+        } catch (SQLException e) {
+            logger.info(e.getMessage(), e);
+        } catch (IOException e) {
             logger.info(e.getMessage(), e);
         }
 

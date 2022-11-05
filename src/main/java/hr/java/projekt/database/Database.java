@@ -2,6 +2,7 @@ package hr.java.projekt.database;
 
 import hr.java.projekt.entitet.Pacijent;
 import hr.java.projekt.entitet.Pregled;
+import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
 
 import java.io.IOException;
 import java.sql.*;
@@ -37,7 +38,8 @@ public class Database {
             veza.close();
     }
 
-    public static List<Pregled> getAllPregledi() throws SQLException, IOException{
+    public static List<Pregled> getAllPregledi() throws SQLException, IOException, IznimkaNemaUpisanihPregleda {
+
         List<Pregled> preglediZaIspis = new ArrayList<>();
 
         try {
@@ -48,9 +50,16 @@ public class Database {
                     "SELECT * FROM PREGLEDI"
             );
 
+            Integer number = 0;
+
             while(patientsResultSet.next()){
-                Pregled noviPregled =getPregledFromResultSet(patientsResultSet);
+                Pregled noviPregled = getPregledFromResultSet(patientsResultSet);
                 preglediZaIspis.add(noviPregled);
+                number++;
+            }
+
+            if(number == 0){
+                throw new IznimkaNemaUpisanihPregleda("Broj pregleda je jednak 0!");
             }
 
             veza.close();
