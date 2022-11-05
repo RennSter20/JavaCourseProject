@@ -4,34 +4,32 @@ import hr.java.projekt.database.Database;
 import hr.java.projekt.entitet.Pacijent;
 import hr.java.projekt.entitet.Pregled;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import javax.xml.crypto.Data;
 
 public class Controller {
     
     private Integer sljedeciKorak;
     private Integer indexKorisnika;
     private Scanner unos;
-    private Database database;
 
     private static Logger logger;
 
-    public Controller(Scanner unos, Integer indexKorisnika, Database database, Logger logger) {
+    public Controller(Scanner unos, Integer indexKorisnika, Logger logger) {
         this.unos = unos;
         this.indexKorisnika = indexKorisnika;
-        this.database = database;
         this.logger = logger;
     }
 
@@ -113,7 +111,7 @@ public class Controller {
 
         switch(temp){
             case 1:
-                unosPregleda();
+                unosPregleda(new Database());
                 break;
             case 2:
                 izmjenaPregleda();
@@ -136,7 +134,7 @@ public class Controller {
         }
     }
 
-    private void unosPregleda(){
+    public void unosPregleda(Database database){
         System.out.println("\n\nUnos pregleda: ");
 
         System.out.print("Ime: ");
@@ -149,25 +147,17 @@ public class Controller {
         String tempOIB = unos.nextLine();
 
         System.out.println("Datum formata dd.mm.yyyy.");
+
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         LocalDate tempDatum = LocalDate.parse(unos.nextLine(), dateFormat);
 
-        database.setPregledi(new Pregled(new Pacijent(tempIme, tempPrezime, tempOIB), tempDatum));
-
-
-        try {
-            Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
-
-            PreparedStatement stmnt = veza.prepareStatement("INSERT INTO PREGLEDI(IME, PREZIME) VALUES(?,?)");
-            stmnt.setString(1, tempIme);
-            stmnt.setString(2, tempPrezime);
-
-            stmnt.executeUpdate();
-            veza.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        try{
+           database.insertNewPregled(new Pregled(new Pacijent(tempIme, tempPrezime, tempOIB),tempDatum));
+       }catch (SQLException e){
+            logger.info(e.getMessage(), e);
+       }catch (IOException e){
+            logger.info(e.getMessage(), e);
+       }
 
         System.out.println("Pregled unesen!");
         System.out.println("Vracanje na pocetni menu...\n\n");
@@ -217,11 +207,11 @@ public class Controller {
         nastaviPetlju = false;
         do{
 
-            try{
+           try{
                 System.out.println("Što želite izmjeniti?");
                 System.out.println("1. Ime");
                 System.out.println("2. Prezime");
-                System.out.println("3. OIB");
+               System.out.println("3. OIB");
                 System.out.println("4. Datum pregleda");
                 System.out.print(">> ");
 
@@ -275,30 +265,30 @@ public class Controller {
     }
 
     private void brisanjePregleda() throws IznimkaNemaUpisanihPregleda {
-        System.out.println("Brisanje pregleda: ");
-        kratkiIspisSvihPregleda();
-
-        System.out.println("Unesite redni broj pregleda koji želite obrisati:");
-        System.out.print(">> ");
-
-        Integer izabranaOpcija = unos.nextInt();
-        unos.nextLine();
-
-        if(database.getPregledi().size() == 0){
-            System.out.println("U bazi podataka nema niti jednog unesenog pregleda!");
-            povratakNaPocetniMeni();
-        }
-        database.getPregledi().remove(izabranaOpcija-1);
-
-        System.out.println("Pregled je izbrisan!");
-
-        povratakNaPocetniMeni();
+//        System.out.println("Brisanje pregleda: ");
+//        kratkiIspisSvihPregleda(new Database());
+//
+//        System.out.println("Unesite redni broj pregleda koji želite obrisati:");
+//        System.out.print(">> ");
+//
+//        Integer izabranaOpcija = unos.nextInt();
+//        unos.nextLine();
+//
+//        if(database.getPregledi().size() == 0){
+//            System.out.println("U bazi podataka nema niti jednog unesenog pregleda!");
+//            povratakNaPocetniMeni();
+//        }
+//        database.getPregledi().remove(izabranaOpcija-1);
+//
+//        System.out.println("Pregled je izbrisan!");
+//
+//        povratakNaPocetniMeni();
 
     }
 
     private void ispisPregleda(){
         try{
-            kratkiIspisSvihPregleda();
+            kratkiIspisSvihPregleda(new Database());
             povratakNaPocetniMeni();
         }catch (IznimkaNemaUpisanihPregleda e){
             System.out.println(e.getMessage());
@@ -326,16 +316,22 @@ public class Controller {
         }
     }
 
-    private void kratkiIspisSvihPregleda() throws IznimkaNemaUpisanihPregleda{
+    private void kratkiIspisSvihPregleda(Database database) throws IznimkaNemaUpisanihPregleda{
 
-        if(database.getPregledi().size() == 0){
-            throw new IznimkaNemaUpisanihPregleda("Broj pregleda je jednak 0!");
+//        if(database.getPregledi().size() == 0){
+//            throw new IznimkaNemaUpisanihPregleda("Broj pregleda je jednak 0!");
+//        }
+        List<Pregled> preglediZaIspis = new ArrayList<>();
+        try{
+            preglediZaIspis = database.getAllPregledi();
+        }catch (Exception e){
+            logger.info(e.getMessage(), e);
         }
 
         System.out.println("Ime-Prezime-OIB-Datum");
 
-        for(int i = 0;i<database.getPregledi().size();i++){
-            System.out.println((i+1) + ". " + database.getPregled(i).getPacijent().getIme() + " " + database.getPregled(i).getPacijent().getPrezime() + " " + database.getPregled(i).getPacijent().getOib() + " " + database.getPregled(i).getDatumPregleda());
+        for(int i = 0;i<preglediZaIspis.size();i++){
+            System.out.println((i+1) + ". " + preglediZaIspis.get(i).getPacijent().getIme() + " " + preglediZaIspis.get(i).getPacijent().getPrezime() + " " + preglediZaIspis.get(i).getPacijent().getOib() + " " + preglediZaIspis.get(i).getDatumPregleda());
         }
     }
 

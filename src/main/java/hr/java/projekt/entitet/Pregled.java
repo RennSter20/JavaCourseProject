@@ -12,7 +12,13 @@ public class Pregled {
     public Pregled(Pacijent pacijent, LocalDate datumPregleda) {
         this.pacijent = pacijent;
         this.datumPregleda = datumPregleda;
+    }
 
+    public Pregled(String ime, String prezime, String OIB, LocalDate datum){
+        this.pacijent.setIme(ime);
+        this.pacijent.setPrezime(prezime);
+        this.pacijent.setOib(OIB);
+        this.datumPregleda = datum;
     }
 
     public Pacijent getPacijent() {

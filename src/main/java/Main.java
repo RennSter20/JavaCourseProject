@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Ovdje možete upisivati, brisati ili izmjeniti preglede pacijenata!\n\n");
 
         Integer userIndex = loginController.login(unos);
-        Controller controller = new Controller(unos, userIndex, database, logger);
+        Controller controller = new Controller(unos, userIndex, logger);
         controller.pocniProgram();
 
 
