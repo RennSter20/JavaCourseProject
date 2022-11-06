@@ -1,13 +1,13 @@
 package hr.java.projekt.entitet;
 
-public class Pacijent {
+public class Patient {
 
     private String ime;
     private String prezime;
     private String oib;
 
 
-    public Pacijent(String ime, String prezime, String oib) {
+    public Patient(String ime, String prezime, String oib) {
         this.ime = ime;
         this.prezime = prezime;
         this.oib = oib;

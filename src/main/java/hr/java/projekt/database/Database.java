@@ -1,16 +1,14 @@
 package hr.java.projekt.database;
 
-import hr.java.projekt.entitet.Pacijent;
-import hr.java.projekt.entitet.Pregled;
+import hr.java.projekt.entitet.Checkup;
+import hr.java.projekt.entitet.Patient;
 import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 public class Database {
 
@@ -20,13 +18,13 @@ public class Database {
             {"32181", "Recepcija", "Bruno"},
             {"43127", "Recepcija", "Luka"}};
 
-    ArrayList<Pregled> pregledi = new ArrayList<>();
+    ArrayList<Checkup> pregledi = new ArrayList<>();
 
     public Database() {
 
     }
 
-    public void insertNewPregled(Pregled pregled) throws SQLException, IOException{
+    public void insertNewPregled(Checkup pregled) throws SQLException, IOException{
             Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
 
             PreparedStatement stmnt = veza.prepareStatement("INSERT INTO PREGLEDI(IME, PREZIME, OIB, DATUM) VALUES(?,?,?,?)");
@@ -38,9 +36,9 @@ public class Database {
             veza.close();
     }
 
-    public static List<Pregled> getAllPregledi() throws SQLException, IOException, IznimkaNemaUpisanihPregleda {
+    public static List<Checkup> getAllPregledi() throws SQLException, IOException, IznimkaNemaUpisanihPregleda {
 
-        List<Pregled> preglediZaIspis = new ArrayList<>();
+        List<Checkup> preglediZaIspis = new ArrayList<>();
 
         try {
             Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
@@ -53,7 +51,7 @@ public class Database {
             Integer number = 0;
 
             while(patientsResultSet.next()){
-                Pregled noviPregled = getPregledFromResultSet(patientsResultSet);
+                Checkup noviPregled = getPregledFromResultSet(patientsResultSet);
                 preglediZaIspis.add(noviPregled);
                 number++;
             }
@@ -71,7 +69,7 @@ public class Database {
         return preglediZaIspis;
     }
 
-    public static Pregled getPregledFromResultSet(ResultSet pregledResultSet) throws SQLException{
+    public static Checkup getPregledFromResultSet(ResultSet pregledResultSet) throws SQLException{
 
         String ime = pregledResultSet.getString("IME");
         String prezime = pregledResultSet.getString("PREZIME");
@@ -82,11 +80,11 @@ public class Database {
         LocalDate tDate = LocalDate.parse(tDatum);
 
 
-        return new Pregled(new Pacijent(ime,prezime,OIB), tDate);
+        return new Checkup(new Patient(ime,prezime,OIB), tDate);
 
     }
 
-    public void addPregled(Pregled pregled) {
+    public void addPregled(Checkup pregled) {
         this.pregledi.add(pregled);
     }
 
@@ -94,15 +92,15 @@ public class Database {
         this.zaposlenici = zaposlenici;
     }
 
-    public ArrayList<Pregled> getPregledi() {
+    public ArrayList<Checkup> getPregledi() {
         return pregledi;
     }
 
-    public Pregled getPregled(Integer index){
+    public Checkup getPregled(Integer index){
         return pregledi.get(index);
     }
 
-    public void setPregledi(Pregled pregled) {
+    public void setPregledi(Checkup pregled) {
         this.pregledi.add(pregled);
     }
 

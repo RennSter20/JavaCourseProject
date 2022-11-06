@@ -1,35 +1,29 @@
 package hr.java.projekt.controller;
 
 import hr.java.projekt.database.Database;
-import hr.java.projekt.entitet.Pacijent;
-import hr.java.projekt.entitet.Pregled;
+import hr.java.projekt.entitet.Checkup;
+import hr.java.projekt.entitet.Patient;
 
 import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
 import org.slf4j.Logger;
 
-import javax.xml.crypto.Data;
-
 public class Controller {
     
     private Integer sljedeciKorak;
-    private Integer indexKorisnika;
+
     private Scanner unos;
 
     private static Logger logger;
 
-    public Controller(Scanner unos, Integer indexKorisnika, Logger logger) {
+    public Controller(Scanner unos, Logger logger) {
         this.unos = unos;
-        this.indexKorisnika = indexKorisnika;
         this.logger = logger;
     }
 
@@ -152,7 +146,7 @@ public class Controller {
         LocalDate tempDatum = LocalDate.parse(unos.nextLine(), dateFormat);
 
         try{
-           database.insertNewPregled(new Pregled(new Pacijent(tempIme, tempPrezime, tempOIB),tempDatum));
+           database.insertNewPregled(new Checkup(new Patient(tempIme, tempPrezime, tempOIB),tempDatum));
        }catch (SQLException e){
             logger.info(e.getMessage(), e);
        }catch (IOException e){
@@ -306,7 +300,7 @@ public class Controller {
 
     private void kratkiIspisSvihPregleda(Database database){
 
-        List<Pregled> preglediZaIspis = new ArrayList<>();
+        List<Checkup> preglediZaIspis = new ArrayList<>();
         try{
             preglediZaIspis = database.getAllPregledi();
 
@@ -332,14 +326,6 @@ public class Controller {
 
     public void setSljedeciKorak(Integer sljedeciKorak) {
         this.sljedeciKorak = sljedeciKorak;
-    }
-
-    public Integer getIndexKorisnika() {
-        return indexKorisnika;
-    }
-
-    public void setIndexKorisnika(Integer indexKorisnika) {
-        this.indexKorisnika = indexKorisnika;
     }
 
     public Logger getLogger() {

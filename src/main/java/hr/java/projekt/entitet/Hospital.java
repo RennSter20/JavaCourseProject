@@ -1,6 +1,6 @@
 package hr.java.projekt.entitet;
 
-public class Bolnica {
+public class Hospital {
 
     private String imeBolnice;
     private String gradBolnice;
@@ -11,7 +11,7 @@ public class Bolnica {
     private Integer brojSoba;
     private Integer budzet;
 
-    public Bolnica(String imeBolnice, String gradBolnice, Integer brojZaposlenika, Integer brojDoktora, Integer ostaloOsoblje, Integer brojTrenutnihPacijenata, Integer brojSoba, Integer budzet) {
+    public Hospital(String imeBolnice, String gradBolnice, Integer brojZaposlenika, Integer brojDoktora, Integer ostaloOsoblje, Integer brojTrenutnihPacijenata, Integer brojSoba, Integer budzet) {
         this.imeBolnice = imeBolnice;
         this.gradBolnice = gradBolnice;
         this.brojZaposlenika = brojZaposlenika;

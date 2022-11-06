@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Working scene with JavaFX.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/MainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mainMenu.fxml" afterDir="false" />
+    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Switching scenes.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Bolest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Bolnica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Doktor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Laboratorij.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Nalaz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pacijent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/PovijestBolesti.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Pregled.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Checkup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Recepcija.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +140,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1667746506913</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Switching scenes.">
+      <created>1667747622923</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1667747622923</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +198,8 @@
     <MESSAGE value="Simple insert to DB." />
     <MESSAGE value="Insert and get methods for DB." />
     <MESSAGE value="Working scene with JavaFX." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working scene with JavaFX." />
+    <MESSAGE value="Switching scenes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Switching scenes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -190,6 +208,36 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

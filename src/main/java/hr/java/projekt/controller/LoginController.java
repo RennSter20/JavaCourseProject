@@ -25,7 +25,7 @@ public class LoginController{
         }
         return -1;
     }
-    public Integer login(Scanner unos){
+    public void login(Scanner unos){
         System.out.print("Unesite Vašu jedinstvenu oznaku: ");
         String JO = unos.nextLine();
         if(JO.equals("Odustajem")){
@@ -40,10 +40,6 @@ public class LoginController{
             System.out.println("Ako želite odustati, upišite \"Odustajem\".");
             login(unos);
         }
-
-
-
-        return indexOznaka;
     }
 
     public String getIme() {

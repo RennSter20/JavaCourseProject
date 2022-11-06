@@ -1,31 +1,30 @@
 package hr.java.projekt.entitet;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Pregled {
+public class Checkup {
 
-    private Pacijent pacijent;
+    private Patient pacijent;
     private LocalDate datumPregleda;
 
 
-    public Pregled(Pacijent pacijent, LocalDate datumPregleda) {
+    public Checkup(Patient pacijent, LocalDate datumPregleda) {
         this.pacijent = pacijent;
         this.datumPregleda = datumPregleda;
     }
 
-    public Pregled(String ime, String prezime, String OIB, LocalDate datum){
+    public Checkup(String ime, String prezime, String OIB, LocalDate datum){
         this.pacijent.setIme(ime);
         this.pacijent.setPrezime(prezime);
         this.pacijent.setOib(OIB);
         this.datumPregleda = datum;
     }
 
-    public Pacijent getPacijent() {
+    public Patient getPacijent() {
         return pacijent;
     }
 
-    public void setPacijent(Pacijent pacijent) {
+    public void setPacijent(Patient pacijent) {
         this.pacijent = pacijent;
     }
 

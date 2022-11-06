@@ -27,8 +27,8 @@ public class Main extends Application {
         System.out.println("Dobrodošli u program HospitalH!");
         System.out.println("Ovdje možete upisivati, brisati ili izmjeniti preglede pacijenata!\n\n");
 
-        Integer userIndex = loginController.login(unos);
-        Controller controller = new Controller(unos, userIndex, logger);
+        loginController.login(unos);
+        Controller controller = new Controller(unos, logger);
         controller.pocniProgram();
 
 

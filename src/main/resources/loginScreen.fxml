@@ -55,7 +55,7 @@
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <TextField id="id" fx:id="id" layoutX="246.0" layoutY="176.0" onAction="#login" />
-            <Button layoutX="295.0" layoutY="230.0" mnemonicParsing="false" onAction="#login" text="Button" />
+            <Button layoutX="296.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" text="Login" />
             <Text layoutX="218.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HospitalZ">
                <font>
                   <Font size="50.0" />
@@ -66,6 +66,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
+            <Text fx:id="errorText" fill="RED" layoutX="280.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children></AnchorPane>
    </children>
 </VBox>
