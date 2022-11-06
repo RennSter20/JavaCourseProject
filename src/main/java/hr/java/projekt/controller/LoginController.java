@@ -1,4 +1,4 @@
-package hr.java.projekt.entitet;
+package hr.java.projekt.controller;
 
 import hr.java.projekt.database.Database;
 

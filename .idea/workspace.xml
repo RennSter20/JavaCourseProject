@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Insert and get methods for DB.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" afterDir="false" />
+    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Working scene with JavaFX.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/MainMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSemesterProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSemesterProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +123,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1667666085082</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Working scene with JavaFX.">
+      <created>1667746506913</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1667746506913</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +180,8 @@
     <MESSAGE value="Fixed try/catch. Added custom Exception." />
     <MESSAGE value="Simple insert to DB." />
     <MESSAGE value="Insert and get methods for DB." />
-    <option name="LAST_COMMIT_MESSAGE" value="Insert and get methods for DB." />
+    <MESSAGE value="Working scene with JavaFX." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working scene with JavaFX." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

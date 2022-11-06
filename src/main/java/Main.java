@@ -1,6 +1,6 @@
 import hr.java.projekt.controller.Controller;
 import hr.java.projekt.database.Database;
-import hr.java.projekt.entitet.LoginController;
+import hr.java.projekt.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
