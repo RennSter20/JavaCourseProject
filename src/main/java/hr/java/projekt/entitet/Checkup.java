@@ -14,8 +14,8 @@ public class Checkup {
     }
 
     public Checkup(String ime, String prezime, String OIB, LocalDate datum){
-        this.pacijent.setIme(ime);
-        this.pacijent.setPrezime(prezime);
+        this.pacijent.setName(ime);
+        this.pacijent.setSurname(prezime);
         this.pacijent.setOib(OIB);
         this.datumPregleda = datum;
     }

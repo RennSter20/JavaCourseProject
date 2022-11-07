@@ -2,32 +2,32 @@ package hr.java.projekt.entitet;
 
 public class Patient {
 
-    private String ime;
-    private String prezime;
+    private String name;
+    private String surname;
     private String oib;
 
 
-    public Patient(String ime, String prezime, String oib) {
-        this.ime = ime;
-        this.prezime = prezime;
+    public Patient(String name, String surname, String oib) {
+        this.name = name;
+        this.surname = surname;
         this.oib = oib;
 
     }
 
-    public String getIme() {
-        return ime;
+    public String getName() {
+        return name;
     }
 
-    public void setIme(String ime) {
-        this.ime = ime;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPrezime() {
-        return prezime;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getOib() {

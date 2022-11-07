@@ -16,10 +16,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 public class LoginControllerFX {
 
     @FXML
@@ -37,7 +33,7 @@ public class LoginControllerFX {
                     Scene scene = new Scene(root);
 
                     Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-
+                    stage.setResizable(false);
                     stage.setScene(scene);
                     stage.show();
                 }else{
@@ -49,13 +45,7 @@ public class LoginControllerFX {
                 System.out.println(ex);
 
             }
-
-
-
-
-
     }
-
     public Boolean checkIfUserExists(String uid) throws SQLException, IOException{
         Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
 
@@ -82,5 +72,7 @@ public class LoginControllerFX {
         return new User(uid, name, surname, role);
 
     }
+
+
 
 }
