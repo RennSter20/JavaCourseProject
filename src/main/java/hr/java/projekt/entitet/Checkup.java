@@ -4,35 +4,35 @@ import java.time.LocalDate;
 
 public class Checkup {
 
-    private Patient pacijent;
-    private LocalDate datumPregleda;
+    private Patient patient;
+    private LocalDate date;
 
 
-    public Checkup(Patient pacijent, LocalDate datumPregleda) {
-        this.pacijent = pacijent;
-        this.datumPregleda = datumPregleda;
+    public Checkup(Patient patient, LocalDate datumPregleda) {
+        this.patient = patient;
+        this.date = datumPregleda;
     }
 
-    public Checkup(String ime, String prezime, String OIB, LocalDate datum){
-        this.pacijent.setName(ime);
-        this.pacijent.setSurname(prezime);
-        this.pacijent.setOib(OIB);
-        this.datumPregleda = datum;
+    public Checkup(String name, String surname, String OIB, LocalDate date){
+        this.patient.setName(name);
+        this.patient.setSurname(surname);
+        this.patient.setOib(OIB);
+        this.date = date;
     }
 
-    public Patient getPacijent() {
-        return pacijent;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPacijent(Patient pacijent) {
-        this.pacijent = pacijent;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    public LocalDate getDatumPregleda() {
-        return datumPregleda;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDatumPregleda(LocalDate datumPregleda) {
-        this.datumPregleda = datumPregleda;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

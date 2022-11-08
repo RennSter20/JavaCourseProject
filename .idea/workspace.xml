@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Login system.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/CheckupControllerFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/MainMenuControllerFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/checkupMenu.fxml" afterDir="false" />
+    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Add checkup, recieve all checkups and show them in list view.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/models/CheckupModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/CheckupControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/CheckupControllerFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/MainMenuController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Checkup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Checkup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/checkupMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/checkupMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -147,7 +143,13 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1667767183130</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Add checkup, recieve all checkups and show them in list view.">
+      <created>1667853014090</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1667853014090</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +203,8 @@
     <MESSAGE value="Working scene with JavaFX." />
     <MESSAGE value="Switching scenes." />
     <MESSAGE value="Login system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login system." />
+    <MESSAGE value="Add checkup, recieve all checkups and show them in list view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add checkup, recieve all checkups and show them in list view." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

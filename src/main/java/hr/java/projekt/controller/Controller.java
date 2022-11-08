@@ -315,7 +315,7 @@ public class Controller {
         System.out.println("Ime-Prezime-OIB-Datum");
 
         for(int i = 0;i<preglediZaIspis.size();i++){
-            System.out.println((i+1) + ". " + preglediZaIspis.get(i).getPacijent().getName() + " " + preglediZaIspis.get(i).getPacijent().getSurname() + " " + preglediZaIspis.get(i).getPacijent().getOib() + " " + preglediZaIspis.get(i).getDatumPregleda());
+            System.out.println((i+1) + ". " + preglediZaIspis.get(i).getPatient().getName() + " " + preglediZaIspis.get(i).getPatient().getSurname() + " " + preglediZaIspis.get(i).getPatient().getOib() + " " + preglediZaIspis.get(i).getDate());
         }
     }
 

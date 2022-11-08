@@ -2,22 +2,23 @@ package hr.java.projekt.controller;
 
 import hr.java.projekt.entitet.Checkup;
 import hr.java.projekt.entitet.Patient;
+import hr.java.projekt.models.CheckupModel;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CheckupControllerFX implements Initializable {
 
@@ -37,7 +38,15 @@ public class CheckupControllerFX implements Initializable {
     private Text successMessage;
 
     @FXML
-    private ListView listOfCheckups;
+    private TableView<CheckupModel> tableView;
+    @FXML
+    private TableColumn<CheckupModel, String> nameColumn;
+    @FXML
+    private TableColumn<CheckupModel, String> surnameColumn;
+    @FXML
+    private TableColumn<CheckupModel, String> oibColumn;
+    @FXML
+    private TableColumn<CheckupModel, String> dateColumn;
 
 
     public void addNewCheckup(ActionEvent e){
@@ -118,9 +127,9 @@ public class CheckupControllerFX implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
-    public List<Checkup> getAllCheckups(ActionEvent e){
+    public void getAllCheckups(ActionEvent e){
 
-        List<Checkup> recievedCheckups = new ArrayList<>();
+        ObservableList<Checkup> recievedCheckups = FXCollections.observableArrayList();
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
@@ -138,9 +147,23 @@ public class CheckupControllerFX implements Initializable {
         }
 
         if(recievedCheckups.size() > 0){
-            listOfCheckups.getItems().addAll(recievedCheckups);
+
+            ObservableList<CheckupModel> checkupRecords = FXCollections.observableArrayList();
+
+            for(int i = 0;i<recievedCheckups.size();i++){
+                checkupRecords.add(new CheckupModel(recievedCheckups.get(i).getPatient().getName(), recievedCheckups.get(i).getPatient().getSurname(), recievedCheckups.get(i).getPatient().getOib(), recievedCheckups.get(i).getDate()));
+            }
+
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+            oibColumn.setCellValueFactory(new PropertyValueFactory<>("oib"));
+            dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+            tableView.setItems(checkupRecords);
+        }else{
+
         }
-            return null;
+
 
 
     }

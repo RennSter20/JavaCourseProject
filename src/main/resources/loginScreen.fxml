@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -11,7 +11,6 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextField id="id" fx:id="id" layoutX="246.0" layoutY="176.0" onAction="#login" />
             <Button layoutX="296.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" text="Login" />
             <Text layoutX="218.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HospitalZ">
                <font>
@@ -24,6 +23,7 @@
                </font>
             </Text>
             <Text fx:id="errorText" fill="RED" layoutX="280.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <PasswordField fx:id="id" layoutX="249.0" layoutY="176.0" />
          </children></AnchorPane>
    </children>
 </VBox>

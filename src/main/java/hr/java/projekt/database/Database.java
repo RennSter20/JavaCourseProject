@@ -28,10 +28,10 @@ public class Database {
             Connection veza = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/production", "student", "student");
 
             PreparedStatement stmnt = veza.prepareStatement("INSERT INTO PREGLEDI(IME, PREZIME, OIB, DATUM) VALUES(?,?,?,?)");
-            stmnt.setString(1, pregled.getPacijent().getName());
-            stmnt.setString(2, pregled.getPacijent().getSurname());
-            stmnt.setString(3, pregled.getPacijent().getOib());
-            stmnt.setString(4, pregled.getDatumPregleda().toString());
+            stmnt.setString(1, pregled.getPatient().getName());
+            stmnt.setString(2, pregled.getPatient().getSurname());
+            stmnt.setString(3, pregled.getPatient().getOib());
+            stmnt.setString(4, pregled.getDate().toString());
             stmnt.executeUpdate();
             veza.close();
     }
@@ -68,7 +68,6 @@ public class Database {
 
         return preglediZaIspis;
     }
-
     public static Checkup getPregledFromResultSet(ResultSet pregledResultSet) throws SQLException{
 
         String ime = pregledResultSet.getString("IME");
@@ -83,7 +82,6 @@ public class Database {
         return new Checkup(new Patient(ime,prezime,OIB), tDate);
 
     }
-
     public void addPregled(Checkup pregled) {
         this.pregledi.add(pregled);
     }
