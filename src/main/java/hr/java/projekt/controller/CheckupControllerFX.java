@@ -2,9 +2,8 @@ package hr.java.projekt.controller;
 
 import hr.java.projekt.entitet.Checkup;
 import hr.java.projekt.entitet.Patient;
+import hr.java.projekt.iznimke.IznimkaNemaUpisanihPregleda;
 import hr.java.projekt.models.CheckupModel;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +13,10 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.swing.event.ChangeListener;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -36,6 +38,8 @@ public class CheckupControllerFX implements Initializable {
     private Text errorMessage;
     @FXML
     private Text successMessage;
+    @FXML
+    private Text oibMessage;
 
     @FXML
     private TableView<CheckupModel> tableView;
@@ -48,6 +52,7 @@ public class CheckupControllerFX implements Initializable {
     @FXML
     private TableColumn<CheckupModel, String> dateColumn;
 
+    private static final Logger logger = LoggerFactory.getLogger(CheckupControllerFX.class);
 
     public void addNewCheckup(ActionEvent e){
         Connection connection = null;
@@ -59,7 +64,12 @@ public class CheckupControllerFX implements Initializable {
             stmnt.setInt(1, Math.abs(new Random().nextInt()));
             stmnt.setString(2, newName.getText());
             stmnt.setString(3, newSurname.getText());
-            stmnt.setString(4, newOIB.getText());
+
+            if(newOIB.getText().length() != 11){
+                oibMessage.setText("Please enter OIB with 11 numbers.");
+            }else{
+                stmnt.setString(4, newOIB.getText());
+            }
 
             if(checkIfFormIsValid(newDate.getValue())){
                 stmnt.setString(5, newDate.getValue().toString());
@@ -74,7 +84,7 @@ public class CheckupControllerFX implements Initializable {
             emptyFields();
 
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            logger.info(String.valueOf(ex.getStackTrace()), ex.getMessage());
         }
     }
     public Boolean checkIfFormIsValid(LocalDate date){
@@ -120,14 +130,17 @@ public class CheckupControllerFX implements Initializable {
         newSurname.setText("");
         newOIB.setText("");
         newDate.setValue(null);
-
+        oibMessage.setText("");
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
     }
-    public void getAllCheckups(ActionEvent e){
+    public void showAllCheckups(ActionEvent e){
 
         ObservableList<Checkup> recievedCheckups = FXCollections.observableArrayList();
 
@@ -143,31 +156,17 @@ public class CheckupControllerFX implements Initializable {
             connection.close();
 
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            logger.info(String.valueOf(ex.getStackTrace()), ex.getMessage());
+            return;
         }
 
-        if(recievedCheckups.size() > 0){
-
-            ObservableList<CheckupModel> checkupRecords = FXCollections.observableArrayList();
-
-            for(int i = 0;i<recievedCheckups.size();i++){
-                checkupRecords.add(new CheckupModel(recievedCheckups.get(i).getPatient().getName(), recievedCheckups.get(i).getPatient().getSurname(), recievedCheckups.get(i).getPatient().getOib(), recievedCheckups.get(i).getDate()));
-            }
-
-            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-            surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
-            oibColumn.setCellValueFactory(new PropertyValueFactory<>("oib"));
-            dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-            tableView.setItems(checkupRecords);
-        }else{
-
+        try{
+            putCheckupsInColumns(recievedCheckups);
+        }catch (IznimkaNemaUpisanihPregleda ex){
+            logger.info(String.valueOf(ex.getStackTrace()), ex.getMessage());
         }
-
-
-
     }
-    public static Checkup getCheckupFromResultSet(ResultSet pregledResultSet) throws SQLException{
+    public Checkup getCheckupFromResultSet(ResultSet pregledResultSet) throws SQLException{
 
         String name = pregledResultSet.getString("NAME");
         String surname = pregledResultSet.getString("SURNAME");
@@ -181,6 +180,23 @@ public class CheckupControllerFX implements Initializable {
         return new Checkup(new Patient(name,surname,OIB), finalDate);
 
     }
+    public void putCheckupsInColumns(ObservableList<Checkup> list) throws IznimkaNemaUpisanihPregleda{
 
+        if(list.size() < 1){
+            throw new IznimkaNemaUpisanihPregleda("There is not checkups to show!");
+        }
 
+        ObservableList<CheckupModel> checkupRecords = FXCollections.observableArrayList();
+
+        for(int i = 0;i<list.size();i++){
+            checkupRecords.add(new CheckupModel(list.get(i).getPatient().getName(), list.get(i).getPatient().getSurname(), list.get(i).getPatient().getOib(), list.get(i).getDate()));
+        }
+
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        oibColumn.setCellValueFactory(new PropertyValueFactory<>("oib"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        tableView.setItems(checkupRecords);
+    }
 }

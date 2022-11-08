@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Add checkup, recieve all checkups and show them in list view.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/models/CheckupModel.java" afterDir="false" />
+    <list default="true" id="4872c475-15bb-4d3d-b9dd-4488ff9abbbe" name="Changes" comment="Show checkups in list view.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/CheckupControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/CheckupControllerFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/controller/LoginControllerFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Checkup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/projekt/entitet/Checkup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/checkupMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/checkupMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/loginScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +145,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1667853014090</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Show checkups in list view.">
+      <created>1667938396928</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1667938396928</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +206,8 @@
     <MESSAGE value="Switching scenes." />
     <MESSAGE value="Login system." />
     <MESSAGE value="Add checkup, recieve all checkups and show them in list view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add checkup, recieve all checkups and show them in list view." />
+    <MESSAGE value="Show checkups in list view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Show checkups in list view." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

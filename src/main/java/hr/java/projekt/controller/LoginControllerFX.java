@@ -21,7 +21,6 @@ public class LoginControllerFX {
 
     @FXML
     public PasswordField id;
-
     @FXML
     public Text errorText;
 

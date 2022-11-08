@@ -18,8 +18,7 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         Application.launch(args);
-
-        Scanner unos = new Scanner(System.in);
+        /*        Scanner unos = new Scanner(System.in);
 
         Database database = new Database();
         LoginController loginController = new LoginController(database);
@@ -29,11 +28,8 @@ public class Main extends Application {
 
         loginController.login(unos);
         Controller controller = new Controller(unos, logger);
-        controller.pocniProgram();
-
-
+        controller.pocniProgram();*/
     }
-
     @Override
     public void start(Stage stage) throws Exception {
 

@@ -30,7 +30,7 @@
                               <Font size="30.0" />
                            </font>
                         </Text>
-                        <Text layoutX="77.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OIB">
+                        <Text layoutX="77.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OIB">
                            <font>
                               <Font size="30.0" />
                            </font>
@@ -45,12 +45,12 @@
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="newOIB" layoutX="170.0" layoutY="176.0">
+                        <TextField fx:id="newOIB" layoutX="170.0" layoutY="187.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextField>
-                        <DatePicker fx:id="newDate" layoutX="174.0" layoutY="245.0" prefHeight="46.0" prefWidth="245.0" promptText="Date of checkup" />
+                        <DatePicker fx:id="newDate" layoutX="172.0" layoutY="244.0" prefHeight="46.0" prefWidth="247.0" promptText="Date of checkup" />
                         <Text layoutX="69.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                            <font>
                               <Font size="30.0" />
@@ -66,12 +66,17 @@
                               <Font size="21.0" />
                            </font>
                         </Text>
-                        <Text fx:id="errorMessage" fill="RED" layoutX="441.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="224.0">
+                        <Text fx:id="errorMessage" fill="RED" layoutX="442.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="224.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Text>
-                        <Text fx:id="successMessage" fill="#00ff15" layoutX="441.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.13671875">
+                        <Text fx:id="successMessage" fill="#00ff15" layoutX="441.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.13671875">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="oibMessage" fill="RED" layoutX="439.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="253.13671875">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -84,7 +89,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="354.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllCheckups" text="GET CHECKUPS" />
+                        <Button layoutX="354.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAllCheckups" text="GET CHECKUPS" />
                         <TableView fx:id="tableView" layoutX="-1.0" layoutY="96.0" prefHeight="200.0" prefWidth="805.0">
                           <columns>
                             <TableColumn fx:id="nameColumn" prefWidth="178.0" text="Name" />
